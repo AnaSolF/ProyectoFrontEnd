@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InicioComponent } from './Components/inicio/inicio.component';
 import { AboutMeComponent } from './Components/about-me/about-me.component';
 import { SkillsComponent } from './Components/skills/skills.component';
@@ -23,6 +23,10 @@ import { EditProjectComponent } from './Page/edit-project/edit-project.component
 import { FooterComponent } from './Page/footer/footer.component';
 import { NavBarComponent } from './Page/nav-bar/nav-bar.component';
 import { ModalComponent } from './Page/modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './Services/auth.service';
+import { PortfolioService } from './Services/portfolio.service';
+import { UrlBaseService } from './Services/url-base.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,14 @@ import { ModalComponent } from './Page/modal/modal.component';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    PortfolioService,
+    UrlBaseService,
+    NgbModalConfig,
+    NgbModal,
+    AuthService, //Ver si usar
+    ReactiveFormsModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
